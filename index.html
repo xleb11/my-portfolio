@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Моё портфолио</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #1e1e1e;
+      color: #fff;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      padding: 20px;
+    }
+
+    .avatar {
+      width: 150px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin: 0;
+      color: #f0f0f0;
+    }
+
+    section {
+      margin: 30px auto;
+      max-width: 600px;
+      background-color: #2c2c2c;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      background-color: #4CAF50;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    a {
+      color: #80d8ff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .copied-msg {
+      margin-left: 10px;
+      color: #4CAF50;
+      font-weight: bold;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Заголовок и аватарка -->
+  <header>
+    <img src="https://uploads.onecompiler.io/43dcj923j/43w22hhk5/05321056eb067291ae8eb2514d48cad9.jpg" class="avatar" alt="Моё фото">
+    <h1>Мирослав Скибун</h1>
+    <p>Будущий IT-специалист</p>
+  </header>
+
+  <!-- О себе -->
+  <section>
+    <h2>О себе</h2>
+    <p>Мне 16 лет, я интересуюсь IT и хочу развиваться в сфере программирования и анализа данных. Учусь в 11 классе.</p>
+  </section>
+
+  <!-- Навыки -->
+  <section>
+    <h2>Навыки</h2>
+    <ul>
+      <li>Изучаю HTML, CSS, JavaScript</li>
+      <li>Интересуюсь Data Analyst и Front-end разработкой</li>
+      <li>Хорошо владею компьютером</li>
+    </ul>
+  </section>
+
+  <!-- Контакты -->
+  <section>
+    <h2>Контакты</h2>
+    <p>Email: <span id="email">f426556@gmail.com</span>
+      <span class="copied-msg" id="email-msg"></span>
+    </p>
+    <p>Telegram: <a href="https://t.me/Im_d1zzy" target="_blank" id="tg">@Im_d1zzy</a>
+      <span class="copied-msg" id="tg-msg"></span>
+    </p>
+    <button onclick="copyText('email', 'email-msg')">Скопировать email</button>
+    <button onclick="copyText('tg', 'tg-msg')">Скопировать Telegram</button>
+  </section>
+
+  <script>
+    function copyText(elementId, msgId) {
+      const text = document.getElementById(elementId).innerText;
+
+      // Копируем в буфер обмена
+      navigator.clipboard.writeText(text).then(() => {
+        const msg = document.getElementById(msgId);
+        msg.innerText = "Скопировано!";
+        msg.style.display = "inline";
+        setTimeout(() => {
+          msg.style.display = "none";
+        }, 2000);
+      }).catch(err => {
+        alert("Не удалось скопировать текст");
+        console.error(err);
+      });
+    }
+  </script>
+
+</body>
+</html>
+
+
+
+
